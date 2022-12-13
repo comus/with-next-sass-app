@@ -136,6 +136,8 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
     }
   }, [onChange, invoice])
 
+  console.log("invoice.productLines", invoice.productLines)
+
   return (
     <Document pdfMode={pdfMode}>
       <Page className="invoice-wrapper" pdfMode={pdfMode}>
@@ -333,7 +335,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
 
         {invoice.productLines.map((productLine, i) => {
           return pdfMode && productLine.description === '' ? (
-            <Text key={i}></Text>
+            null
           ) : (
             <View key={i} className="row flex" pdfMode={pdfMode}>
               <View className="w-48 p-4-8 pb-10" pdfMode={pdfMode}>
