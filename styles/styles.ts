@@ -77,6 +77,14 @@ const styles: CSSClasses = {
     borderBottom: `1px solid ${colorGray}`,
   },
 
+  'mr-4': {
+    marginRight: '4px',
+  },
+
+  'mt-100': {
+    marginTop: '100px',
+  },
+
   'mt-40': {
     marginTop: '40px',
   },
@@ -117,6 +125,10 @@ const styles: CSSClasses = {
     fontWeight: 'bold',
   },
 
+  'fs-10': {
+    fontSize: '10px',
+  },
+
   'fs-20': {
     fontSize: '20px',
   },
@@ -126,10 +138,11 @@ const styles: CSSClasses = {
   },
 
   page: {
-    fontFamily: 'Nunito',
-    fontSize: '13px',
+    fontFamily: 'Noto Sans TC',
+    fontSize: '10px',
     color: '#555',
     padding: '40px 35px',
+    lineHeight: 1.2
   },
 
   span: {
@@ -138,7 +151,35 @@ const styles: CSSClasses = {
 
   logo: {
     display: 'block',
-  }
+  },
+
+  'lh-10': {
+    lineHeight: 1.2
+  },
+
+  'pl-4': {
+    padding: '4px'
+  },
+
+  heading: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: "20px",
+    textAlign: "center"
+  },
+  red: {
+    background: "#f00"
+  },
+  alignItemsCenter: {
+    alignItems: "center"
+  },
+  // description: {
+  //   maxWidth: "100px",
+  //   width: "100px",
+  //   wordBreak: "break-all",
+  //   // flex: 1
+  // }
 }
 
 export default styles

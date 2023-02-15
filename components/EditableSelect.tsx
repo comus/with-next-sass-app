@@ -14,6 +14,9 @@ interface Props {
   value?: string
   onChange?: (value: string) => void
   pdfMode?: boolean
+  prefix?: string
+  otherValue?: string
+  otherOnChange?: (value: string) => void
 }
 
 const EditableSelect: FC<Props> = ({
@@ -23,22 +26,27 @@ const EditableSelect: FC<Props> = ({
   value,
   onChange,
   pdfMode,
+  prefix = "",
+  otherValue,
+  otherOnChange
 }) => {
   const [isEditing, setIsEditing] = useState<boolean>(false)
 
   return (
     <>
       {pdfMode ? (
-        <Text style={compose('span ' + (className ? className : ''))}>{value}</Text>
+        <Text style={compose((className ? className : ''))}>{prefix ? <Text style={compose("bold")}>{prefix}</Text>: ""}{value}{otherValue ? `. ${otherValue}` : ""}</Text>
       ) : (
-        <>
-          {isEditing ? (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          {prefix ? <span className={"bold"}>{prefix}</span>: ""}
+          <>
             <select
               className={'select ' + (className ? className : '')}
               value={value}
               onChange={onChange ? (e) => onChange(e.target.value) : undefined}
-              onBlur={() => setIsEditing(false)}
-              autoFocus={true}
+              // onBlur={() => setIsEditing(false)}
+              // autoFocus={true}
+              style={{ flex: 1 }}
             >
               {options?.map((option) => (
                 <option key={option.text} value={option.value}>
@@ -46,17 +54,18 @@ const EditableSelect: FC<Props> = ({
                 </option>
               ))}
             </select>
-          ) : (
-            <input
-              readOnly={true}
-              type="text"
-              className={'input ' + (className ? className : '')}
-              value={value || ''}
-              placeholder={placeholder || ''}
-              onFocus={() => setIsEditing(true)}
-            />
-          )}
-        </>
+            {value === "其他" && (
+              <input
+                type="text"
+                className={'input ' + (className ? className : '')}
+                placeholder={"內容" || ''}
+                style={{ flex: 2 }}
+                value={otherValue || ""}
+                onChange={otherOnChange ? (e) => otherOnChange(e.target.value) : undefined}
+              />
+            )}
+          </>
+        </div>
       )}
     </>
   )

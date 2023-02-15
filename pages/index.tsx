@@ -3,32 +3,30 @@ import InvoicePage from '../components/InvoicePage'
 import { Invoice } from '../data/types'
 
 function App() {
-  let data
-  if (typeof window !== "undefined") {
+  const [data, setDate] = useState()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
     const savedInvoice = window.localStorage.getItem('invoiceData')
-    data = null
+    setDate(null)
 
     try {
       if (savedInvoice) {
-        data = JSON.parse(savedInvoice)
+        setDate(JSON.parse(savedInvoice))
       }
     } catch (_e) { }
-  }
 
-  const onInvoiceUpdated = (invoice: Invoice) => {
-    window.localStorage.setItem('invoiceData', JSON.stringify(invoice))
-  }
-
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => {
     setMounted(true)
   }, [])
 
   if (!mounted) return null
 
+  const onInvoiceUpdated = (invoice: Invoice) => {
+    window.localStorage.setItem('invoiceData', JSON.stringify(invoice))
+  }
+
   return (
     <div className="app">
-      <h1 className="center fs-30">React Invoice Generator</h1>
       <InvoicePage data={data} onChange={onInvoiceUpdated} />
     </div>
   )

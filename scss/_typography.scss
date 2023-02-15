@@ -1,5 +1,18 @@
+@font-face {
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: normal;
+  src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans TC Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2) format('woff2');
+}
+
 body {
-  font-family: Nunito, sans-serif;
+  font-family: 'Noto Sans TC', 'Noto Sans TC Bold', Nunito, sans-serif;
   font-size: 14px;
   color: #555;
   background: $background-color;
@@ -19,7 +32,7 @@ body {
 input,
 textarea,
 select {
-  font-family: Nunito, sans-serif;
+  font-family: 'Noto Sans TC', 'Noto Sans TC Bold', Nunito, sans-serif;
   font-size: 14px;
   color: #555;
   background: transparent;
@@ -32,7 +45,7 @@ select {
 }
 
 button {
-  font-family: Nunito, sans-serif;
+  font-family: 'Noto Sans TC', 'Noto Sans TC Bold', Nunito, sans-serif;
   font-size: 14px;
   border-radius: 3px;
 }

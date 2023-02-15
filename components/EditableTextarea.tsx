@@ -10,6 +10,7 @@ interface Props {
   onChange?: (value: string) => void
   pdfMode?: boolean
   rows?: number
+  readOnly?: boolean
 }
 
 const EditableTextarea: FC<Props> = ({
@@ -19,7 +20,21 @@ const EditableTextarea: FC<Props> = ({
   onChange,
   pdfMode,
   rows,
+  readOnly
 }) => {
+  if (!pdfMode && readOnly) {
+    return (
+      <p className={(className ? className : '')} style={{ margin: 0 }}>
+        <TextareaAutosize
+          readOnly
+          minRows={rows || 1}
+          className={'input ' + (className ? className : '')}
+          value={value || ''}
+        />
+      </p>
+    )
+  }
+
   return (
     <>
       {pdfMode ? (

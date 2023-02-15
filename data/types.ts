@@ -21,6 +21,16 @@ export interface Invoice {
   clientAddress: string
   clientAddress2: string
   clientCountry: string
+  clientPhone: string
+  clientMail: string
+  clientContactName: string
+  clientContactPhone: string
+  clientRemarks: string
+  clientProject: string
+  otherProject: string
+  invoiceNumber: string
+
+  heading: string
 
   invoiceTitleLabel: string
   invoiceTitle: string
@@ -28,6 +38,10 @@ export interface Invoice {
   invoiceDate: string
   invoiceDueDateLabel: string
   invoiceDueDate: string
+
+  invoiceFrom: string
+
+  deliveryDate: string
 
   productLineDescription: string
   productLineQuantity: string
@@ -37,7 +51,7 @@ export interface Invoice {
   productLines: ProductLine[]
 
   subTotalLabel: string
-  taxLabel: string
+  discountLabel: string
 
   totalLabel: string
   currency: string

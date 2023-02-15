@@ -8,7 +8,7 @@
 .select {
   display: inline-block;
   width: 98%;
-  padding: 4px 12px 4px 0;
+  // padding: 4px 12px 4px 0;
   margin-bottom: 1px;
   border: 1px dotted transparent;
   transition: background 0.1s ease-in-out, border-color 0.2s ease-in-out;
@@ -168,4 +168,19 @@
   left: 0;
   border-radius: 4px;
   box-shadow: 2px 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+.heading {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 20px;
+  text-align: center;
+}
+
+.currency {
+  align-items: center;
 }
