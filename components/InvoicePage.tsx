@@ -75,6 +75,7 @@ interface Props {
 }
 
 let defaultInvoiceNumber = "G" + format(new Date(), "yyyyMMddHHmmss")
+let defaultInvoiceDate = new Date()
 
 const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
   const [invoice, setInvoice] = useState<Invoice>(data ? { ...data } : { ...initialInvoice })
@@ -84,6 +85,9 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
   useEffect(() => {
     if (!pdfMode) {
       handleChange('invoiceNumber', defaultInvoiceNumber)
+    }
+    if (!pdfMode) {
+      handleChange('invoiceDate', format(defaultInvoiceDate, dateFormat))
     }
   }, [])
 
@@ -422,9 +426,10 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
           </View>
           <View className="w-17 p-4-8" pdfMode={pdfMode}>
             <EditableInput
+              readOnly
               className="white bold right"
-              value={invoice.productLineQuantityRate}
-              onChange={(value) => handleChange('productLineQuantityRate', value)}
+              value={"Price"}
+              // onChange={(value) => handleChange('productLineQuantityRate', value)}
               pdfMode={pdfMode}
             />
           </View>
