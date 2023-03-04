@@ -84,10 +84,10 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
 
   useEffect(() => {
     if (!pdfMode) {
-      handleChange('invoiceNumber', defaultInvoiceNumber)
-    }
-    if (!pdfMode) {
-      handleChange('invoiceDate', format(defaultInvoiceDate, dateFormat))
+      const newInvoice = { ...invoice }
+      newInvoice["invoiceNumber"] = defaultInvoiceNumber
+      newInvoice["invoiceDate"] = format(defaultInvoiceDate, dateFormat)
+      setInvoice(newInvoice)
     }
   }, [])
 
