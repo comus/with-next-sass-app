@@ -235,7 +235,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
             />
             <EditableInput
               readOnly
-              value={"澳門羅神父街35-49號時代工業大廈3樓1室"}
+              value={"澳門宋玉生廣場238-286號建興龍廣場14T"}
               pdfMode={pdfMode}
             />
             <EditableInput
